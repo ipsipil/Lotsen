@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Shift extends Model
 {
     use HasFactory;
-    protected $fillable = ['name'];
+
+    // <- color hinzufügen!
+    protected $fillable = ['name', 'color'];
 }
