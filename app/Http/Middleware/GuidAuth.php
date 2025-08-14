@@ -11,10 +11,18 @@ class GuidAuth
         $guid = $request->route('guid');
         if (!$guid) abort(403, 'Kein GUID angegeben');
 
-        $user = User::where('guid', $guid)->first();
-        if (!$user) abort(403, 'Ungültiger Link');
+        $user = User::where('guid', $guid)->firstOrFail();
 
-        auth()->login($user);
+        // Nur wenn noch nicht (dieser) User eingeloggt ist
+        if (!auth()->check() || auth()->id() !== $user->id) {
+            auth()->login($user);
+
+            // Wichtig: Session nur bei GET rotieren, damit CSRF stabil bleibt
+            if ($request->isMethod('GET')) {
+                $request->session()->regenerate(); // oder ->migrate(true)
+            }
+        }
+
         return $next($request);
     }
 }

@@ -80,6 +80,17 @@
     <div class="col-md-6">
       <div class="card h-100">
         <div class="card-body">
+          <h5 class="card-title">Nutzer einladen</h5>
+          <p class="card-text">Einzel-Anlage, CSV-Import, Einladung erneut senden.</p>
+          <a class="btn btn-primary" href="/admin/users">Öffnen</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-6">
+      <div class="card h-100">
+        <div class="card-body">
           <h5 class="card-title">CSV pro Nutzer</h5>
           <form class="row g-2" method="GET" action="/admin/export/user-csv">
             <div class="col-12">
