@@ -1,0 +1,5 @@
+Erinnerung: Stelle sicher, dass dein User-Model `guid` erlaubt:
+
+// app/Models/User.php
+protected $fillable = ['name','email','guid'];
+// Falls $hidden gesetzt ist: kein Passwort-Zwang nötig (passwortloser Magic-Link)
