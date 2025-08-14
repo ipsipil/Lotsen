@@ -12,9 +12,12 @@ use App\Notifications\BookingCancelled;
 
 class DashboardController extends Controller
 {
+
     public function index(Request $request)
     {
-        return view('dashboard', ['user' => auth()->user()]);
+        $user = auth()->user();
+        $shifts = \App\Models\Shift::orderBy('id')->get();
+        return view('dashboard', compact('user','shifts'));
     }
 
     public function book(Request $request)

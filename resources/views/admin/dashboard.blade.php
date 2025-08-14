@@ -61,12 +61,19 @@
               <input type="date" name="to" class="form-control">
             </div>
             <div class="col-12">
-              <label class="form-label">Schicht (optional)</label>
+              <label class="form-label">Ort</label>
               <select class="form-select" name="shift_id">
                 <option value="">Alle</option>
-                <option value="1">Früh</option>
-                <option value="2">Mittel</option>
-                <option value="3">Spät</option>
+                @if(isset($shifts) && count($shifts))
+                  @foreach($shifts as $s)
+                    <option value="{{ $s->id }}">{{ $s->name }}</option>
+                  @endforeach
+                @else
+                  {{-- Fallback, falls Controller mal nichts liefert --}}
+                  <option value="1">Früh</option>
+                  <option value="2">Mittel</option>
+                  <option value="3">Spät</option>
+                @endif
               </select>
             </div>
             <div class="col-12">
