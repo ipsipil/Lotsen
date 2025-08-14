@@ -16,7 +16,7 @@ class DashboardController extends Controller
     public function index(Request $request)
     {
         $user = auth()->user();
-        $shifts = \App\Models\Shift::orderBy('id')->get();
+        $shifts = Shift::orderBy('id')->get();
         return view('dashboard', compact('user','shifts'));
     }
 

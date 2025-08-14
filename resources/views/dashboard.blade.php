@@ -35,9 +35,9 @@
       <div class="modal-body">
         <select id="shiftSelect" class="form-select">
           <option value="">-- bitte wählen --</option>
-          <option value="1">Früh</option>
-          <option value="2">Mittel</option>
-          <option value="3">Spät</option>
+          @foreach($shifts as $s)
+            <option value="{{ $s->id }}">{{ $s->name }}</option>
+          @endforeach
         </select>
       </div>
       <div class="modal-footer">
