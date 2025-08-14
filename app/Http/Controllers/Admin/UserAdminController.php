@@ -25,7 +25,7 @@ class UserAdminController extends Controller
         $r->validate([
             'name'  => 'required|string|max:255',
             'email' => 'nullable|email|max:255',
-            'send'  => 'nullable|boolean',
+            'send'  => 'required|in:0,1',
         ]);
 
         $user = User::firstOrCreate(
@@ -56,7 +56,7 @@ class UserAdminController extends Controller
     {
         $r->validate([
             'csv'   => 'required|file|mimes:csv,txt',
-            'send'  => 'nullable|boolean',
+            'send'  => 'required|in:0,1',
         ]);
         $path = $r->file('csv')->getRealPath();
         $fh = fopen($path, 'r');

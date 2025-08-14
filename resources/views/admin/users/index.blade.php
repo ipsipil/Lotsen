@@ -32,16 +32,16 @@
               <input class="form-control" name="email" type="email" placeholder="max@example.com">
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="checkbox" name="send" id="send1" checked>
-              <label class="form-check-label" for="send1">Einladung per E‑Mail senden (falls E‑Mail vorhanden)</label>
+              <input type="hidden" name="send" value="0">
+              <input class="form-check-input" type="checkbox" name="send" id="send1" value="1" checked>
+              <label class="form-check-label" for="send1">Einladung per E‑Mail senden</label>
             </div>
             <button class="btn btn-primary">Anlegen</button>
-          </form>
         </div>
       </div>
     </div>
 
-    <div class="col-md-6">
+    <!--<div class="col-md-6">
       <div class="card h-100">
         <div class="card-body">
           <h5 class="card-title">CSV‑Import</h5>
@@ -52,15 +52,16 @@
               <input class="form-control" type="file" name="csv" accept=".csv,text/csv" required>
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="checkbox" name="send" id="send2" checked>
-              <label class="form-check-label" for="send2">Einladungen per E‑Mail senden (falls E‑Mail vorhanden)</label>
+              <input type="hidden" name="send" value="0">
+              <input class="form-check-input" type="checkbox" name="send" id="send2" value="1" checked>
+              <label class="form-check-label" for="send2">Einladungen per E‑Mail senden</label>
             </div>
             <button class="btn btn-primary">Import starten</button>
           </form>
         </div>
       </div>
     </div>
-  </div>
+  </div>-->
 
   <div class="card">
     <div class="card-body">
