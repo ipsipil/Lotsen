@@ -11,13 +11,17 @@ class CalendarController extends Controller
     {
         $user = auth()->user();
 
-        $events = Booking::with('shift','user')->get()->map(function($b) use ($user) {
+        $events = \App\Models\Booking::with('shift','user')->get()->map(function($b) use ($user) {
+            $title = $b->shift->name . ' – ' . ($b->user->name ?? '—');
+            // Farbe: bevorzugt Schicht-Farbe; eigene Buchung optional mit Rand hervorheben
+            $color = $b->shift->color ?: ($b->user_id === $user->id ? '#007bff' : '#dc3545');
+
             return [
                 'id'       => $b->id,
-                'title'    => $b->shift->name,
+                'title'    => $title,
                 'start'    => $b->date,
                 'allDay'   => true,
-                'color'    => $b->user_id === $user->id ? '#007bff' : '#dc3545',
+                'color'    => $color,
                 'user_id'  => $b->user_id,
                 'shift_id' => $b->shift_id,
             ];
@@ -25,6 +29,7 @@ class CalendarController extends Controller
 
         return response()->json($events);
     }
+
 
     public function holidays(Request $request)
     {

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+  <style>.fc-event.own { border:2px solid #000; }</style>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
